@@ -1,0 +1,1 @@
+“This Flutter app demonstrates a simple UI using basic widgets like Container and Text. Each car category is displayed inside a colored Container, and its description is shown using Text widgets arranged in a Column layout.”
