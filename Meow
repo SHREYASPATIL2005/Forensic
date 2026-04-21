@@ -1,0 +1,100 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(CarApp());
+}
+
+class CarApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Car App"),
+          backgroundColor: Colors.deepPurple,
+          actions: [
+            Icon(Icons.directions_car),
+            SizedBox(width: 10),
+          ],
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+
+                // 🚘 Sedan
+                categoryTitle("Sedan", Colors.blueAccent),
+                categoryText(
+                  "Sedans are stylish passenger cars designed for comfort "
+                  "and efficiency. They usually have four doors and a separate "
+                  "boot space. Sedans are ideal for daily commuting, office "
+                  "travel, and small families.\n\n"
+                  "Popular sedan cars include Honda City, Hyundai Verna, "
+                  "Skoda Slavia, and Maruti Suzuki Ciaz. They offer smooth "
+                  "driving experience and good mileage."
+                ),
+
+                // 🚙 SUV
+                categoryTitle("SUV", Colors.teal),
+                categoryText(
+                  "SUVs (Sports Utility Vehicles) are powerful and spacious "
+                  "vehicles built for both city roads and off-road conditions. "
+                  "They have high ground clearance and strong engines.\n\n"
+                  "SUVs are suitable for long journeys, rough terrains, and "
+                  "adventure trips. Popular SUVs include Hyundai Creta, "
+                  "Mahindra Scorpio, Tata Harrier, and Toyota Fortuner."
+                ),
+
+                // 🚗 Hatchback
+                categoryTitle("Hatchback", Colors.deepOrange),
+                categoryText(
+                  "Hatchback cars are compact, affordable, and fuel-efficient "
+                  "vehicles. They are easy to drive and park, making them "
+                  "perfect for beginners and city traffic.\n\n"
+                  "Common hatchbacks include Maruti Swift, Hyundai i10, "
+                  "Tata Tiago, and WagonR. These cars are economical and "
+                  "low maintenance."
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  // 🔹 Heading Container
+  Widget categoryTitle(String text, Color color) {
+    return Container(
+      width: double.infinity,
+      margin: EdgeInsets.symmetric(vertical: 10),
+      padding: EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+      ),
+    );
+  }
+
+  // 🔹 Description Text
+  Widget categoryText(String text) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: Text(
+        text,
+        style: TextStyle(fontSize: 15),
+      ),
+    );
+  }
+}
